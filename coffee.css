@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f2ef;
+}
+
+.hidden {
+      display: none !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+
+.header h1 {
+    color: #8b5e3c;
+    margin-left: 37px;
+}
+
+.header input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.header button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid #8b5e3c;
+    background: white;
+    color: #8b5e3c;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    padding: 10px 50px;
+}
+
+.filters input,
+.filters select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #2e1502;
+}
+.filters button{
+    border: none;
+    background: #8b5e3c;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+ul {
+    list-style: none; 
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+}
+
+.card {
+    background: #ffffff;
+    width: 220px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 130px;
+    height: 140px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    color: #8b5e3c;
+}
+
+.card button {
+    margin-top: 8px;
+    padding: 5px 10px;
+    border: none;
+    background: #8b5e3c;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-left: 60px;
+}
+.news-item {
+    background: white;
+    margin: 10px 50px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.news-item.very {
+    border-left: 5px solid red;
+}
+
+.news-item.important {
+    border-left: 5px solid orange;
+}
+.news-item.normal {
+    border-left: 5px solid green;
+}
+
+.cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background: white;
+    padding: 15px;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-content h2 {
+      margin-left: 5px;
+}
+.modal-content button {
+    margin-top: 10px;  
+    padding: 10px 15px;
+    border: none;
+    background: #8b5e3c;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
