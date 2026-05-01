@@ -38,11 +38,29 @@
     <div id="products" class="cards"></div>
 </section>
 
-<section>
+<section class="news-section">
     <h2>Новини</h2>
-    <div id="news"></div>
+    <div class="news-container">
+        <aside class="news-sidebar" id="news-titles"></aside>
+        
+        <main class="news-content" id="active-news-body">
+            <p>Оберіть новину для перегляду</p>
+        </main>
+    </div>
+    <button id="load-more-news" class="more-btn" onclick="loadMoreNews()">Більше</button>
 </section>
 
+<section class="charts-section" style="padding: 20px;">
+    <h2>Статистика пропозицій</h2>
+    <select id="chart-type" onchange="drawCharts()" style="margin-bottom: 20px; padding: 10px; border-radius: 10px;">
+        <option value="bar">Гістограма (Стовпчики)</option>
+        <option value="pie">Кругова діаграма</option>
+        <option value="line">Графік (Лінії)</option>
+    </select>
+    <div style="background: #fff; padding: 20px; border-radius: 15px; border: 1px solid #eee;">
+        <canvas id="myCanvas" width="600" height="400" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;"></canvas>
+    </div>
+</section>
 
 <div id="cart" class="cart hidden">
     <h3>
@@ -50,6 +68,8 @@
         <span onclick="toggleCart()" style="cursor:pointer;position:absolute; top:10px; right:15px;">✖</span>
     </h3>
     <ul id="cart-items"></ul>
+    <p id="total">Разом: 0 грн</p>
+    <button id="checkout-btn" class="checkout-btn" onclick="sendOrder()">Відправити замовлення</button>
 </div>
 
 
@@ -64,6 +84,14 @@
     </div>
 </div>
 
+<div id="order-modal" class="modal hidden">
+    <div class="modal-content">
+        <span onclick="closeOrderModal()" style="cursor:pointer; position:absolute; top:10px; right:15px;">✖</span>
+        <h2>Замовлення прийнято!</h2>
+        <div id="order-info"></div> <br>
+        <button onclick="closeOrderModal()">Зрозуміло</button>
+    </div>
+</div>
 <script src="coffee.js"></script>
 </body>
 </html>
