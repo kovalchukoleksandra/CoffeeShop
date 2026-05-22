@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://coffeeshop-ez6x.onrender.com";
 let items = [];
 let newsData = [];
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null; 
