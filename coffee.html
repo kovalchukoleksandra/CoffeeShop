@@ -11,9 +11,9 @@
     <h1>Menu</h1>
     <div class="header-right">
     <input type="text" id="search" placeholder="Пошук...">
-    <button onclick="openModal()">Увійти</button>
+    <button id="auth-btn" onclick="openModal()">Увійти</button> 
     <button onclick="toggleCart()">Кошик</button>
-    </div>
+</div>
 </header>
 
 <div class="filters">
@@ -33,10 +33,34 @@
     <input type="number" id="maxPrice" placeholder="До">
     <button onclick="applyFilters()">Застосувати</button>
 </div>
+<div id="admin-panel" class="modal hidden" style="z-index: 9999;">
+    <div class="modal-content" style="position: relative; max-width: 500px;">
+        
+        <span onclick="toggleAdminPanel()" style="cursor: pointer; position: absolute; top: 10px; right: 15px; font-weight: bold; font-size: 1.3em;">✖</span>
+        
+        <h2 id="admin-panel-title" style="color: #5d3a1a; margin-top: 0;">Новий товар</h2>
+        
+        <form id="add-product-form" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+            <label>Назва товару: <input type="text" id="prod-name" required style="width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;"></label>
+            <label>Тип товару:
+                <select id="prod-type" style="width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="coffee">Кава</option>
+                    <option value="tea">Чай</option>
+                </select>
+            </label>
+            <label>Ціна (грн): <input type="number" id="prod-price" min="1" required style="width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;"></label>
+            <label>URL картинки: <input type="text" id="prod-img" required style="width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;"></label>
+            <label>Опис: <textarea id="prod-desc" required style="width: 100%; padding: 8px; height: 70px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; resize: none;"></textarea></label>
+            
+            <button id="admin-submit-btn" type="button" onclick="handleAdminSubmit(event)" style="background: #28a745; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1em; margin-top: 5px;">Зберегти та додати</button>
+        </form>
+    </div>
+</div>
 
 <section>
     <div id="products" class="cards"></div>
 </section>
+
 
 <section class="news-section">
     <h2>Новини</h2>
@@ -72,15 +96,62 @@
     <button id="checkout-btn" class="checkout-btn" onclick="sendOrder()">Відправити замовлення</button>
 </div>
 
-
 <div id="modal" class="modal hidden">
     <div class="modal-content">
-<span onclick="closeModal()" style="cursor:pointer; position:absolute; top:10px; right:15px;">✖</span>
-        <h2>Авторизація</h2>
-        <input type="text" placeholder="Логін" autocomplete="off">
-        <input type="password" placeholder="Пароль" autocomplete="new-password">
-        <br>
-        <button onclick="closeModal()">Відправити</button>
+
+        <span onclick="closeModal()" 
+        style="cursor:pointer; position:absolute; top:10px; right:15px;">
+        ✖
+        </span>
+
+        <div id="login-form">
+
+            <h2>Авторизація</h2>
+
+            <input type="text" id="login-name" placeholder="Логін">
+
+            <input type="password" id="login-password" placeholder="Пароль">
+
+            <p id="login-message"></p>
+
+            <button onclick="login()">Увійти</button>
+
+            <p>
+                Немає акаунта?
+                <span onclick="showRegister()" 
+                style="color:blue; cursor:pointer;">
+                    Реєстрація
+                </span>
+            </p>
+
+        </div>
+
+        <div id="register-form" class="hidden">
+
+            <h2>Реєстрація</h2>
+
+            <input type="text" id="reg-login" placeholder="Логін">
+
+            <input type="email" id="reg-email" placeholder="Email">
+
+            <input type="password" id="reg-password" placeholder="Пароль">
+
+            <input type="password" id="reg-repeat" placeholder="Повторіть пароль">
+
+            <p id="register-message"></p>
+
+            <button onclick="register()">Зареєструватися</button>
+
+            <p>
+                Вже є акаунт?
+                <span onclick="showLogin()" 
+                style="color:blue; cursor:pointer;">
+                    Увійти
+                </span>
+            </p>
+
+        </div>
+
     </div>
 </div>
 
